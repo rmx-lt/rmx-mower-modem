@@ -1,19 +1,13 @@
-# Adds every new issue to the org project Blade of Grass
-# (https://github.com/orgs/rmx-lt/projects/1). The project's own auto-add
-# workflow covers only one repo on our plan, so each repo has this file.
-# Status, Priority and Area are still set by hand. Needs the org secret
-# PROJECT_PAT (token with Projects read/write on rmx-lt). rmx-lt/blade-of-grass#8
-name: add-to-project
+name: Add to project
 
 on:
   issues:
-    types: [opened, reopened, transferred]
-
-permissions: {}
+    types: [opened, transferred]
 
 jobs:
-  add:
-    runs-on: ubuntu-24.04
+  add-to-project:
+    name: Add issue to the Blade of Grass project
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/add-to-project@v1.0.2
         with:
